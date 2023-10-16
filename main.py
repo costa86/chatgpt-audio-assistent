@@ -5,16 +5,16 @@ import openai
 
 FILE_NAME = "gpt"
 ENGINE = "text-davinci-002"
-text_file = f"{FILE_NAME}.txt"
-audio_file = f"{FILE_NAME}.wav"
+TEXT_FILE = f"{FILE_NAME}.txt"
+AUDIO_FILE = f"{FILE_NAME}.wav"
 
 
-def get_file_content(file_name: str = text_file) -> str:
+def get_file_content(file_name: str = TEXT_FILE) -> str:
     with open(file_name, "r") as f:
         return f.read()
 
-def call_chat_gpt(text_file: str = text_file, prompt: str = "What are you?"):
-    openai.api_key = get_file_content("/home/costa/coding/python/chatgpt/key.txt")
+def call_chat_gpt(text_file: str = TEXT_FILE, prompt: str = "What are you?"):
+    openai.api_key = get_file_content("/home/costa/projects/python_projects/chatgpt-audio-assistent/key.txt")
 
     response = openai.Completion.create(
         engine=ENGINE,
@@ -49,8 +49,8 @@ def get_mic_input(language: str = "en-us") -> str:
 
 
 def speak(text: str):
-    save_audio_file(text, audio_file)
-    playsound(audio_file)
+    save_audio_file(text, AUDIO_FILE)
+    playsound(AUDIO_FILE)
 
 speak("Hello. What would you like to ask ChatGPT?")
 call_chat_gpt(prompt=get_mic_input())

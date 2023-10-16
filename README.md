@@ -12,7 +12,7 @@ https://share.vidyard.com/watch/YFs4fcUdNq7heht55aoYo7?
     pip install -r requirements.txt
 
 ## Run
-    python assistent.py
+    python main.py
 
 ## Notes
 Both audio and text response from ChatGPT will be saved in local files (gpt.wav and gpt.txt)
